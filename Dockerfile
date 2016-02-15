@@ -1,6 +1,6 @@
 FROM node:0.10
 
-MAINTAINER Daniel Holzmann <d@velopment.at>
+MAINTAINER The Teknologist <teknologist@gmail.com>
 
 RUN apt-get update \
   && apt-get upgrade -y \
