@@ -6,13 +6,13 @@ RUN apt-get update \
   && apt-get upgrade -y \
 	&& apt-get install -y --no-install-recommends \
 		ca-certificates curl graphicsmagick \
-		numactl locales bzip2 build-essential python git libc6:i386 libncurses5:i386 libstdc++6:i386 lib32z1 \
+		numactl locales bzip2 build-essential python git libc6 libncurses5 libstdc++6 lib32z1 \
 	&& rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y && \
     apt-get clean
 
 # Installs Android SDK
-ENV ANDROID_SDK_FILENAME android-sdk_r23.0.2-linux.tgz
+ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
 ENV ANDROID_SDK_URL http://dl.google.com/android/${ANDROID_SDK_FILENAME}
 ENV ANDROID_API_LEVELS android-23 
 ENV ANDROID_BUILD_TOOLS_VERSION 21.1.0
