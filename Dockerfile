@@ -49,12 +49,14 @@ RUN cd /opt && \
 
 RUN curl https://install.meteor.com/ | sh
 
+RUN cd /tmp && meteor create dummy-app && cd dummy-app && meteor update --release 1.3-cordova-beta.5 && cd /tmp && rm -rf /tmp/dummy-app
+
 #RUN meteor install-sdk android
 
 # upgrade NPM itself
 RUN npm -g install npm@latest-2
 
-RUN npm install -g velocity-cli gulp phantomjs node-gyp
+RUN npm install -g velocity-cli gulp phantomjs-prebuilt node-gyp
 
 ENV JASMINE_BROWSER PhantomJS
 ENV PORT 3000
