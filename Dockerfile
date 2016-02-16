@@ -45,14 +45,17 @@ ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 RUN cd /opt && \
     wget -q ${ANDROID_SDK_URL} && \
     tar -xzf ${ANDROID_SDK_FILENAME} && \
-    rm ${ANDROID_SDK_FILENAME} && \
-    echo y | android update sdk --no-ui
+    rm ${ANDROID_SDK_FILENAME} 
+
+#   && \
+#   echo y | android update sdk --no-ui
 
 #    android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_SDKS},${ANDROID_BUILD_TOOLS},extra,extra-android-m2repository     
 
 RUN curl https://install.meteor.com/ | sh
 
-RUN cd /tmp && meteor create dummy-app && cd dummy-app && meteor update --release 1.3-cordova-beta.5 && cd /tmp && rm -rf /tmp/dummy-app && meteor install-sdk android
+#RUN cd /tmp && meteor create dummy-app && cd dummy-app && meteor update --release 1.3-cordova-beta.5 && cd /tmp && rm -rf /tmp/dummy-app && 
+RUN meteor install-sdk android
 
 #RUN meteor install-sdk android
 
