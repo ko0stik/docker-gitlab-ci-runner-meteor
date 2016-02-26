@@ -5,12 +5,11 @@ MAINTAINER The Teknologist <teknologist@gmail.com>
 RUN apt-get update \
   && apt-get upgrade -y \
 	&& apt-get install -y --no-install-recommends \
-		ca-certificates curl graphicsmagick \
+		ca-certificates curl graphicsmagick openssh-client \
 		numactl locales bzip2 build-essential python git libc6 libncurses5 libstdc++6 lib32z1 lib32stdc++6 \
 	&& rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y && \
     apt-get clean
-
 
 # Install java through webupd8 repository
 RUN \
