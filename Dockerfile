@@ -1,4 +1,4 @@
-FROM node:0.10
+FROM node:0.10.41
 
 MAINTAINER The Teknologist <teknologist@gmail.com>
 
