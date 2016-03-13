@@ -36,9 +36,9 @@ RUN \
 # Installs Android SDK
 ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
 ENV ANDROID_SDK_URL http://dl.google.com/android/${ANDROID_SDK_FILENAME}
-ENV ANDROID_SDK_ITEMS 1,3,26,27,146,147,154 
+ENV ANDROID_SDK_ITEMS 1,3,26,24,27,29,146,147,154
 #Android SDK Build-tools, revision 22.0.1
-ENV ANDROID_BUILD_TOOLS 7
+ENV ANDROID_BUILD_TOOLS 6
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
 RUN cd /opt && \
