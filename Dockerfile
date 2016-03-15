@@ -38,7 +38,8 @@ RUN \
 ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
 ENV ANDROID_SDK_URL http://dl.google.com/android/${ANDROID_SDK_FILENAME}
 ENV ANDROID_SDK_ITEMS tools,platform-tools,build-tools-23.0.2,android-23
-ENV ANDROID_EXTRA_SUPPORT extra-android-support,extra-google-m2repository
+ENV ANDROID_EXTRA_SUPPORT extra-android-support
+ENV ANDROID_EXTRA_M2REPO xtra-google-m2repository
 ENV GOOGLE_ITEMS addon-google_apis-google-23,extra-google-google_play_services
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
@@ -46,7 +47,9 @@ RUN cd /opt && \
     wget -q ${ANDROID_SDK_URL} && \
     tar -xzf ${ANDROID_SDK_FILENAME} && \
     rm ${ANDROID_SDK_FILENAME}  && \
-     echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS},${ANDROID_EXTRA_SUPPORT}  && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS} && \
+     echo y | android update sdk --no-ui -a -t${ANDROID_EXTRA_SUPPORT}  && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_M2REPO}  && \
      echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}
 #    android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_SDKS},${ANDROID_BUILD_TOOLS},extra,extra-android-m2repository
 RUN curl https://install.meteor.com/ | sh
