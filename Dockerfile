@@ -48,7 +48,7 @@ RUN cd /opt && \
     tar -xzf ${ANDROID_SDK_FILENAME} && \
     rm ${ANDROID_SDK_FILENAME}  && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS} && \
-     echo y | android update sdk --no-ui -a -t${ANDROID_EXTRA_SUPPORT}  && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_SUPPORT}  && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_M2REPO}  && \
      echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}
 #    android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_SDKS},${ANDROID_BUILD_TOOLS},extra,extra-android-m2repository
