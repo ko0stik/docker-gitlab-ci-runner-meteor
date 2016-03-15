@@ -45,11 +45,10 @@ RUN cd /opt && \
     wget -q ${ANDROID_SDK_URL} && \
     tar -xzf ${ANDROID_SDK_FILENAME} && \
     rm ${ANDROID_SDK_FILENAME}  && \
-     echo y | android update sdk --no-ui -a --filter ${ANDROID_SDK_ITEMS} && \
-     echo y | android update sdk --no-ui -a --filter ${ANDROID_EXTRA_SUPPORT}   && \
-     echo y | android update sdk --no-ui -a --filter ${GOOGLE_ITEMS}
-#    android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_SDKS},${ANDROID_BUILD_TOOLS},extra,extra-android-m2repository     
-
+     echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS} && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_SUPPORT}   && \
+     echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}
+#    android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_SDKS},${ANDROID_BUILD_TOOLS},extra,extra-android-m2repository
 RUN curl https://install.meteor.com/ | sh
 
 # upgrade NPM itself
