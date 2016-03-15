@@ -7,7 +7,7 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		ca-certificates curl graphicsmagick openssh-client \
 		numactl locales bzip2 build-essential python git libc6 libncurses5 libstdc++6 lib32z1 lib32stdc++6 \
-		libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ \
+		libcairo2-dev libjpeg-dev libpango1.0-dev libgif-dev build-essential g++ \
 	&& rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y && \
     apt-get clean
