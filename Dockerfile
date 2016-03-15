@@ -7,6 +7,7 @@ RUN apt-get update \
 	&& apt-get install -y --no-install-recommends \
 		ca-certificates curl graphicsmagick openssh-client \
 		numactl locales bzip2 build-essential python git libc6 libncurses5 libstdc++6 lib32z1 lib32stdc++6 \
+		libcairo2-dev libjpeg8-dev libpango1.0-dev libgif-dev build-essential g++ \
 	&& rm -rf /var/lib/apt/lists/* && \
     apt-get autoremove -y && \
     apt-get clean
@@ -45,8 +46,7 @@ RUN cd /opt && \
     wget -q ${ANDROID_SDK_URL} && \
     tar -xzf ${ANDROID_SDK_FILENAME} && \
     rm ${ANDROID_SDK_FILENAME}  && \
-     echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS} && \
-     echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_SUPPORT}   && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS},${ANDROID_EXTRA_SUPPORT}  && \
      echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}
 #    android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_SDKS},${ANDROID_BUILD_TOOLS},extra,extra-android-m2repository
 RUN curl https://install.meteor.com/ | sh
