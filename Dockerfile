@@ -25,14 +25,10 @@ RUN \
     echo debconf shared/accepted-oracle-license-v1-1 select true | debconf-set-selections  && \
     echo debconf shared/accepted-oracle-license-v1-1 seen true | debconf-set-selections  && \
     DEBIAN_FRONTEND=noninteractive  apt-get install -y --force-yes oracle-java8-installer  && \
-    \
-    \
     echo "===> clean up..."  && \
     rm -rf /var/cache/oracle-jdk8-installer  && \
     apt-get clean  && \
     rm -rf /var/lib/apt/lists/*
-
-
 
 # Installs Android SDK
 ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
@@ -50,9 +46,7 @@ RUN cd /opt && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS} && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_SUPPORT}  && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_M2REPO}  && \
-     echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}
-#    android update sdk --no-ui -a --filter tools,platform-tools,${ANDROID_SDKS},${ANDROID_BUILD_TOOLS},extra,extra-android-m2repository
-RUN curl https://install.meteor.com/ | sh
+     echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}RUN curl https://install.meteor.com/ | sh
 
 # upgrade NPM itself
 RUN npm -g install npm@latest-2
