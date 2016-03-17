@@ -46,7 +46,9 @@ RUN cd /opt && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS} && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_SUPPORT}  && \
      echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_M2REPO}  && \
-     echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}RUN curl https://install.meteor.com/ | sh
+     echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}
+     
+RUN curl https://install.meteor.com/ | sh
 
 # upgrade NPM itself
 RUN npm -g install npm@latest-2
