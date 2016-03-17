@@ -39,7 +39,7 @@ ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
 ENV ANDROID_SDK_URL http://dl.google.com/android/${ANDROID_SDK_FILENAME}
 ENV ANDROID_SDK_ITEMS tools,platform-tools,build-tools-23.0.2,android-23
 ENV ANDROID_EXTRA_SUPPORT extra-android-support
-ENV ANDROID_EXTRA_M2REPO xtra-google-m2repository
+ENV ANDROID_EXTRA_M2REPO extra-google-m2repository
 ENV GOOGLE_ITEMS addon-google_apis-google-23,extra-google-google_play_services
 ENV ANDROID_HOME /opt/android-sdk-linux
 ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
