@@ -30,12 +30,33 @@ RUN \
     apt-get clean  && \
     rm -rf /var/lib/apt/lists/*
 
+<<<<<<< 7ee5d4db0a0be67f15fea9d2dbbfbf2660c4d73d
+# Installs Android SDK
+ENV ANDROID_SDK_FILENAME android-sdk_r24.4.1-linux.tgz
+ENV ANDROID_SDK_URL http://dl.google.com/android/${ANDROID_SDK_FILENAME}
+ENV ANDROID_SDK_ITEMS tools,platform-tools,build-tools-23.0.2,android-23
+ENV ANDROID_EXTRA_SUPPORT extra-android-support
+ENV ANDROID_EXTRA_M2REPO extra-google-m2repository
+ENV GOOGLE_ITEMS addon-google_apis-google-23,extra-google-google_play_services
+ENV ANDROID_HOME /opt/android-sdk-linux
+ENV PATH ${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+RUN cd /opt && \
+    wget -q ${ANDROID_SDK_URL} && \
+    tar -xzf ${ANDROID_SDK_FILENAME} && \
+    rm ${ANDROID_SDK_FILENAME}  && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_SDK_ITEMS} && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_SUPPORT}  && \
+     echo y | android update sdk --no-ui -a -t ${ANDROID_EXTRA_M2REPO}  && \
+     echo y | android update sdk --no-ui -a -t ${GOOGLE_ITEMS}
+     
+=======
 #Install Docker
 RUN echo "deb https://apt.dockerproject.org/repo debian-jessie main" | tee /etc/apt/sources.list.d/docker.list && \
   apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D && \
-    apt-get update && apt-get install docker-engine && service docker start
+    apt-get update && apt-get install docker- && service docker start
 
 
+>>>>>>> Removed meteor and added Docker
 RUN curl https://install.meteor.com/ | sh
 
 # upgrade NPM itself
